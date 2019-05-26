@@ -1,7 +1,9 @@
-package com.company.Enviornment;
+package com.company.Simulation;
 
+import com.company.Main;
 import com.company.Utility.Vector;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,9 +20,8 @@ public class WorldEngine implements Runnable {
 
     public void run()
     {
-        while(true)
-            if(body2DList.size() > 0)
-            {
+        while(Main.applicationThread.isAlive()) {
+            if (body2DList.size() > 0) {
                 {
                     body2DList.parallelStream().forEach(body2D ->
                             {
@@ -30,6 +31,9 @@ public class WorldEngine implements Runnable {
                     );
                 }
             }
+
+//            System.out.println("ENGINE IS RUNNING"); //DEBUG
+        }
     }
 
     public void updateBody(Body2D body)
