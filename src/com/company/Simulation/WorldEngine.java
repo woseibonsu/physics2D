@@ -1,9 +1,8 @@
 package com.company.Simulation;
 
-import com.company.Main;
+import com.company.Physics2D;
 import com.company.Utility.Vector;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +19,7 @@ public class WorldEngine implements Runnable {
 
     public void run()
     {
-        while(Main.applicationThread.isAlive()) {
+        while(Physics2D.applicationThread.isAlive()) {
             if (body2DList.size() > 0) {
                 {
                     body2DList.parallelStream().forEach(body2D ->
@@ -31,7 +30,6 @@ public class WorldEngine implements Runnable {
                     );
                 }
             }
-
 //            System.out.println("ENGINE IS RUNNING"); //DEBUG
         }
     }
@@ -42,6 +40,11 @@ public class WorldEngine implements Runnable {
         body.updateVelocity();
         body.updatePosition();
 
+    }
+
+    public void setGravity(double g)
+    {
+        gravity.setComponent(1, g);
     }
 
 
