@@ -106,6 +106,24 @@ public class Vector {
 
         return cv;
     }
+    
+    public static dotProduct(Vector v...)    
+    {
+        double dot = 0;
+        for (int i = 0; i < v.length; i++)
+        {
+            for(int j = 0; j < v.length; j++)
+            {
+               for (int k = 0; k < v[i].length; i++)
+               {
+                   (if i =! j)
+                   {
+                       v[i].getComponent(k) * v[j]
+                   }                   
+               }   
+            }
+        }
+    }
 
 
 }
