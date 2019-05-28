@@ -85,6 +85,11 @@ public class Body2D {
         return position;
     }
 
+    public Vector getPotentialEnergy()
+    {
+        return mass *  WorldEngine.getGravity().getComponent(1)  *  position.getComponent(1);
+    }
+
     public void setPosition(Vector position) {
         this.position = position;
     }

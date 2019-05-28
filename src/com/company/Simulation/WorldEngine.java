@@ -9,15 +9,15 @@ import java.util.List;
 
 public class WorldEngine implements Runnable {
 
-    private List<Body2D> body2DList = new ArrayList<>();
-    private Vector gravity = new Vector(0, -9.8);
+    private static List<Body2D> body2DList = new ArrayList<>();
+    private static Vector gravity = new Vector(0, -9.8);
 
-    public WorldEngine(Body2D... body2DS)
+    public  WorldEngine(Body2D... body2DS)
     {
         body2DList = Arrays.asList(body2DS);
     }
 
-    public void run()
+    public  void run()
     {
         while(Physics2D.applicationThread.isAlive()) {
             if (body2DList.size() > 0) {
@@ -34,7 +34,7 @@ public class WorldEngine implements Runnable {
         }
     }
 
-    public void updateBody(Body2D body)
+    public static void updateBody(Body2D body)
     {
         body.updateAcceleration(gravity);
         body.updateVelocity();
@@ -42,9 +42,14 @@ public class WorldEngine implements Runnable {
 
     }
 
-    public void setGravity(double g)
+    public static void setGravity(double g)
     {
         gravity.setComponent(1, g);
+    }
+
+    public static Vector getGravity ()
+    {
+        return gravity;
     }
 
 

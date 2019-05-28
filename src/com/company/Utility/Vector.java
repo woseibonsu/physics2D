@@ -20,11 +20,9 @@ public class Vector {
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         StringBuilder string = new StringBuilder();
-        for (double temp : vector)
-        {
+        for (double temp : vector) {
             string.append("[ ");
             string.append(temp);
             string.append(" ]\n");
@@ -32,27 +30,22 @@ public class Vector {
         return string.toString();
     }
 
-    public void setComponent(int i, double num)
-    {
+    public void setComponent(int i, double num) {
         vector[i] = num;
     }
 
-    public double getComponent(int i)
-    {
+    public double getComponent(int i) {
         return vector[i];
     }
 
-    public int getSize()
-    {
+    public int getSize() {
         return size;
     }
 
-    public double getMagnitude()
-    {
+    public double getMagnitude() {
         double mag = 0.0;
 
-        for (double component : vector)
-        {
+        for (double component : vector) {
             mag += Math.pow(component, 2);
         }
 
@@ -60,23 +53,19 @@ public class Vector {
 
     }
 
-    public static Vector getSpan(Vector... v)
-    {
+    public static Vector getSpan(Vector... v) {
         int sMax = 0;
         int sMin = 0;
 
         //DETERMINES WHICH VECTOR HAS A GREATER CAPACITY
-        for (Vector tempV : v)
-        {
+        for (Vector tempV : v) {
             //FIND MAXIMUM CAPACITY
-            if (tempV.size > sMax)
-            {
+            if (tempV.size > sMax) {
                 sMax = tempV.size;
             }
 
             //FIND MINIMUM CAPACITY
-            if(tempV.size < sMin)
-            {
+            if (tempV.size < sMin) {
                 sMin = tempV.size;
             }
 
@@ -88,22 +77,36 @@ public class Vector {
 
         //ADDS NON-EMPTY INDICES OF THE GIVEN VECTOR
         for (int i = 0; i < sMax; i++) //CURRENT COMPONENT BEING EVALUATED
+        {
+
+            for (Vector givenVector : v) // FOR EACH VECTOR GIVEN IN THE PARAMETERS
             {
-
-                    for(Vector givenVector : v) // FOR EACH VECTOR GIVEN IN THE PARAMETERS
-                    {
-                        try
-                        {
-                        sum[i] += givenVector.getComponent(i);
-                        }
-                        catch (IndexOutOfBoundsException e){}
-                    }
-
-
+                try {
+                    sum[i] += givenVector.getComponent(i);
+                } catch (IndexOutOfBoundsException e) {
+                }
             }
 
-            return new Vector(sum);
+
         }
 
+        return new Vector(sum);
+
+
     }
+
+    public static Vector multScalar(Vector v, double c)
+    {
+        Vector cv = new Vector(v.size);
+
+        for(int i = 0; i < cv.size; i++)
+        {
+            cv.setComponent(i, c * v.getComponent(i));
+        }
+
+        return cv;
+    }
+
+
+}
 
