@@ -93,6 +93,11 @@ public class Body2D {
         return 0.5 * k * Math.pow(x, 2);
     }
 
+    public Vector getMomentum()
+    {
+        return Vector.multScalar(velocity, mass);
+    }
+
     public void setPosition(Vector position) {
         this.position = position;
     }

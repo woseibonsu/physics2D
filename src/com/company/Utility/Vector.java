@@ -109,7 +109,6 @@ public class Vector {
         }
         for (int j = 0; j < v.length; j++)
         {
-            {
                 for (int k = 0; k < min; k++)
                 {
                     if (0 != j)
@@ -120,7 +119,6 @@ public class Vector {
                     }
                 }
 
-            }
         }
         return dot;
     }
