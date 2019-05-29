@@ -1,6 +1,7 @@
 package com.company;
 import com.company.Enviornment.GUI;
 import com.company.Simulation.WorldEngine;
+import com.company.Utility.Vector;
 
 
 public class Physics2D {
@@ -13,15 +14,16 @@ public class Physics2D {
         //Credits
         System.out.println("Created by: Winston Osei-Bonsu\nLaunching Physics 2D...");
 
-        //Runs Application
+        //Application Thread
         GUI application = new GUI();
         applicationThread = new Thread(application);
         applicationThread.start();
 
-        //Runs World Engine
+        //World Engine Thread
         WorldEngine world = new WorldEngine();
         engineThread = new Thread(world);
         engineThread.start();
+        
 
 
     }

@@ -7,27 +7,16 @@ public class Vector {
     private double[] vector;
     private int size;
 
-    public Vector(int size) //Create a Vector of given size
-    {
+    //Create a Vector of given size
+    public Vector(int size) {
         vector = new double[size];
         this.size = size;
     }
 
-    public Vector(double... n) //Create a Vector given values
-    {
+    //Create a Vector given values
+    public Vector(double... n) {
         vector = n;
         size = vector.length;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder string = new StringBuilder();
-        for (double temp : vector) {
-            string.append("[ ");
-            string.append(temp);
-            string.append(" ]\n");
-        }
-        return string.toString();
     }
 
     public void setComponent(int i, double num) {
@@ -83,7 +72,9 @@ public class Vector {
             {
                 try {
                     sum[i] += givenVector.getComponent(i);
-                } catch (IndexOutOfBoundsException e) {
+                } catch (IndexOutOfBoundsException e)
+                {
+                    //Ignore difference in dimension
                 }
             }
 
@@ -95,8 +86,7 @@ public class Vector {
 
     }
 
-    public static Vector multScalar(Vector v, double c)
-    {
+    public static Vector multScalar(Vector v, double c) {
         Vector cv = new Vector(v.size);
 
         for(int i = 0; i < cv.size; i++)
@@ -107,24 +97,44 @@ public class Vector {
         return cv;
     }
     
-    public static dotProduct(Vector v...)    
-    {
+    public static double dotProduct(Vector... v) {
+
         double dot = 0;
-        for (int i = 0; i < v.length; i++)
-        {
-            for(int j = 0; j < v.length; j++)
-            {
-               for (int k = 0; k < v[i].length; i++)
-               {
-                   (if i =! j)
-                   {
-                       v[i].getComponent(k) * v[j]
-                   }                   
-               }   
+        int min = v[0].size;
+
+        for (Vector temp : v) {
+            if (temp.size < min) {
+                min = temp.size;
             }
         }
+        for (int j = 0; j < v.length; j++)
+        {
+            {
+                for (int k = 0; k < min; k++)
+                {
+                    if (0 != j)
+                    {
+//                        System.out.println("v[i]: " + v[0].getComponent(k) );
+//                        System.out.println("v[j]: " + v[j].getComponent(k) );
+                        dot += v[0].getComponent(k) * v[j].getComponent(k);
+                    }
+                }
+
+            }
+        }
+        return dot;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder string = new StringBuilder();
+        for (double temp : vector) {
+            string.append("[ ");
+            string.append(temp);
+            string.append(" ]\n");
+        }
+        return string.toString();
+    }
 
 }
 

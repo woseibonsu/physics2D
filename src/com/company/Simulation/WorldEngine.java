@@ -2,7 +2,6 @@ package com.company.Simulation;
 
 import com.company.Physics2D;
 import com.company.Utility.Vector;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

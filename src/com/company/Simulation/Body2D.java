@@ -28,7 +28,6 @@ public class Body2D {
         return force;
     }
 
-
     public Vector updateAcceleration(Vector force)
     {
         Vector acc = new Vector(2);
@@ -80,14 +79,18 @@ public class Body2D {
 
     }
 
-
     public Vector getPosition() {
         return position;
     }
 
-    public Vector getPotentialEnergy()
+    public double getGPEnergy()
     {
-        return mass *  WorldEngine.getGravity().getComponent(1)  *  position.getComponent(1);
+        return mass * position.getComponent(1) * WorldEngine.getGravity().getComponent(1);
+    }
+
+    public double getEPEnergy(double k, double x)
+    {
+        return 0.5 * k * Math.pow(x, 2);
     }
 
     public void setPosition(Vector position) {
