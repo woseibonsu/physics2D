@@ -8,7 +8,7 @@ public class Body2D {
     private Vector position = new Vector(0, 0);
     private Vector velocity = new Vector(0, 0);
     private Vector acceleration = new Vector(0, 0);
-    private double timeInterval = 0.1;
+    private double timeInterval = .000000411;
 
     public Body2D(double m)
     {

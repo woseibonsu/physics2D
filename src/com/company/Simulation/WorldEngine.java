@@ -20,7 +20,7 @@ public class WorldEngine implements Runnable {
                     body2DList.parallelStream().forEach(body2D ->
                             {
                                 updateBody(body2D);
-                                System.out.println(body2D.getPosition()); //DEBUG
+//                                System.out.println(body2D.getPosition()); //DEBUG
                             }
                     );
                 }
@@ -31,11 +31,11 @@ public class WorldEngine implements Runnable {
 
     public static void updateBody(Body2D body)
     {
+        long time = System.nanoTime();
         body.updateAcceleration(gravity);
         body.updateVelocity();
         body.updatePosition();
-        System.out.println(body.getPosition());
-
+        System.out.println("Time Interval: " + (System.nanoTime() - time));
     }
 
 
