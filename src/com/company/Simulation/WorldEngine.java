@@ -11,10 +11,6 @@ public class WorldEngine implements Runnable {
     private static List<Body2D> body2DList = new ArrayList<>();
     private static Vector gravity = new Vector(0, -9.8);
 
-    public  WorldEngine(Body2D... body2DS)
-    {
-        body2DList = Arrays.asList(body2DS);
-    }
 
     public  void run()
     {
@@ -38,7 +34,27 @@ public class WorldEngine implements Runnable {
         body.updateAcceleration(gravity);
         body.updateVelocity();
         body.updatePosition();
+        System.out.println(body.getPosition());
 
+    }
+
+
+    public static void addBody(Body2D... b2d)
+    {
+        for ( Body2D b : b2d )
+        {
+            body2DList.add(b);
+        }
+    }
+
+    public static void addBody(double m)
+    {
+            body2DList.add(new Body2D(m));
+    }
+
+    public static void addBody(double m , Vector p)
+    {
+        body2DList.add(new Body2D(m , p));
     }
 
     public static void setGravity(double g)

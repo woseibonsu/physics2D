@@ -23,8 +23,8 @@ public class Physics2D {
         WorldEngine world = new WorldEngine();
         engineThread = new Thread(world);
         engineThread.start();
-        
 
+        WorldEngine.addBody(10);
 
     }
 

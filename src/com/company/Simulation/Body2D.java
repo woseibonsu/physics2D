@@ -10,10 +10,16 @@ public class Body2D {
     private Vector acceleration = new Vector(0, 0);
     private double timeInterval = 0.1;
 
-    public Body2D(int m)
+    public Body2D(double m)
     {
         mass = m;
         position = new Vector(0 , 0);
+    }
+
+    public Body2D(double m, Vector position)
+    {
+        mass = m;
+        this.position = position;
     }
 
     public Vector getForceApplied()
