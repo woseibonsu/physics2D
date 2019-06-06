@@ -31,11 +31,11 @@ public class WorldEngine implements Runnable {
 
     public static void updateBody(Body2D body)
     {
+        long time = System.nanoTime();
         body.updateAcceleration(gravity);
         body.updateVelocity();
         body.updatePosition();
-        System.out.println(body.getPosition());
-
+        System.out.println("Time Interval: " + (System.nanoTime() - time));
     }
 
 
