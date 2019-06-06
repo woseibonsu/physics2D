@@ -20,7 +20,7 @@ public class WorldEngine implements Runnable {
                     body2DList.parallelStream().forEach(body2D ->
                             {
                                 updateBody(body2D);
-                                System.out.println(body2D.getPosition()); //DEBUG
+//                                System.out.println(body2D.getPosition()); //DEBUG
                             }
                     );
                 }
@@ -50,6 +50,14 @@ public class WorldEngine implements Runnable {
     public static void addBody(double m)
     {
             body2DList.add(new Body2D(m));
+    }
+
+    public static void applyForce (Body2D b1, Body2D b2)
+    {
+        if (b1.getForceApplied().getMagnitude() < b2.getForceApplied().getMagnitude())
+        {
+
+        }
     }
 
     public static void addBody(double m , Vector p)

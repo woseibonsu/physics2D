@@ -7,6 +7,7 @@ import javafx.geometry.Orientation;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.StackPane;
@@ -45,6 +46,8 @@ public class GUI extends Application implements EventHandler<ActionEvent>, Runna
         SplitPane layout = new SplitPane();
         SplitPane interactables = new SplitPane();
 
+
+
         Menu file = new Menu("File");
         Menu help = new Menu("Help");
         MenuBar menuBar = new MenuBar();
@@ -59,6 +62,9 @@ public class GUI extends Application implements EventHandler<ActionEvent>, Runna
         consoleTitle.setBackground(shade2);
         consoleTitle.setScaleShape(true);
 
+        AnchorPane sAPane = new AnchorPane();
+        AnchorPane.setLeftAnchor(settingTitle, 0.0);
+        sAPane.getChildren().addAll()
 
         layout.setOrientation(Orientation.VERTICAL);
         layout.getItems().addAll(interactables, consoleTitle);

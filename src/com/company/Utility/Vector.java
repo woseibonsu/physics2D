@@ -2,7 +2,7 @@ package com.company.Utility;
 
 import java.util.Arrays;
 
-public class Vector {
+public class Vector implements Comparable<Vector>{
 
     private double[] vector;
     private int size;
@@ -123,6 +123,11 @@ public class Vector {
         return dot;
     }
 
+    public int compareMagnitude(Vector v)
+    {
+        return (int) (getMagnitude() - v.getMagnitude());
+    }
+
     @Override
     public String toString() {
         StringBuilder string = new StringBuilder();
@@ -134,5 +139,9 @@ public class Vector {
         return string.toString();
     }
 
+    @Override
+    public int compareTo(Vector o) {
+        return 0;
+    }
 }
 
