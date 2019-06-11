@@ -10,7 +10,6 @@ public class Physics2D {
     public static Thread engineThread;
 
     public static void main(String[] args) {
-        Sy
 
         //Credits
         System.out.println("Created by: Winston Osei-Bonsu\nLaunching Physics 2D...");
