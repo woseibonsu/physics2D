@@ -73,6 +73,14 @@ public class WorldEngine implements Runnable {
         }
     }
 
+    public static void applyForce (Body2D b1, Body2D b2)
+    {
+        if (b1.getForceApplied().getMagnitude() < b2.getForceApplied().getMagnitude())
+        {
+
+        }
+    }
+
     public static void addBody(double m , Vector p)
     {
         body2DList.add(new Body2D(m , p));
